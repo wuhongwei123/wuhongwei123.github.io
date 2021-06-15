@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ajax和axios的区别, hellow tomorrow">
+    <meta name="keywords" content="面试总结, hellow tomorrow">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ajax和axios的区别 | hellow tomorrow</title>
+    <title>面试总结 | hellow tomorrow</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -321,12 +321,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ajax和axios的区别</h1>
+                    <h1 class="description center-align post-title">面试总结</h1>
                 </div>
             </div>
         </div>
@@ -442,12 +442,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ajax/">
-                                <span class="chip bg-color">ajax</span>
-                            </a>
-                        
-                            <a href="/tags/axios/">
-                                <span class="chip bg-color">axios</span>
+                            <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                <span class="chip bg-color">面试</span>
                             </a>
                         
                     </div>
@@ -478,42 +474,138 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="ajax-和-axios-的使用和区别"><a href="#ajax-和-axios-的使用和区别" class="headerlink" title="ajax 和 axios 的使用和区别"></a>ajax 和 axios 的使用和区别</h3><p>​    在开始之前先看一下代码：</p>
-<p>　ajax:</p>
-<p>　　$.ajax({</p>
-<p>　　　　url: ‘接口地址’,</p>
-<p>　　　　type: ‘get’, //或者post　　 请求类型</p>
-<p>　　　　dataType: ‘json’,</p>
-<p>　　　　data: { // 要发送的请求参数</p>
-<p>　　　　　　‘username’ : ‘hermit’,</p>
-<p>　　　　　　‘password’ : ‘a123’</p>
-<p>　　　　},</p>
-<p>　　　　success : function (response) {</p>
-<p>　　　　　　console.log(response); // 请求返回的数据</p>
-<p>　　　　}</p>
-<p>　　})</p>
-<p>　axios:</p>
-<p>　　axios({</p>
-<p>　　　　url: ‘接口地址’,</p>
-<p>　　　　method: ‘get’, //或者 post  请求类型</p>
-<p>　　　　responseType: ‘json’, //默认格式，如果就是 json 格式可以不写</p>
-<p>　　　　data: {</p>
-<p>　　　　　　‘username’ : ‘hermit’,</p>
-<p>　　　　　　‘password’ : ‘a123’</p>
-<p>　　　　}</p>
-<p>　　}).then( function(response){ // 请求正确返回的数据</p>
-<p>　　　　console.log(response);</p>
-<p>　　　　console.log(response.data);</p>
-<p>　　}).catch( function(error) { // 请求错误返回的数据</p>
-<p>　　　　console.log(error);</p>
-<p>　　})</p>
-<p>​    两者其实并没有太大的区别，在写法上大致相同。</p>
-<p>​    其实axios是通过 promise 实现对 ajax 技术的一种封装。就像 ajax 是 通过 jQuery 来封装一样。</p>
-<p>​    也就是说，jQuery 将请求技术进行了封装 变成了 ajax , 而通过 promise 又把 ajax 进行封装就成了 axios。</p>
-<p>　在现在的前端 mvvm 模式下 axios 更适合于数据请求。</p>
-<p>　下面一段是在 vue 中使用的 axios 代码：</p>
-<p>　　btn(value){<br>　　　　let postData = qs.stringify({<br>　　　　　　weixin: value<br>　　　　})<br>　　　　let api = ‘<a target="_blank" rel="noopener" href="http://tp.xxxxxxxxx.com/index.php/index/index/checkweixin&#39;">http://tp.xxxxxxxxx.com/index.php/index/index/checkweixin&#39;</a>;<br>　　　　axios.post(api, postData)<br>　　　　.then(function(res) { //请求成功返回的数据<br>　　　　　　console.log(‘==00000’,res.data.code);<br>　　　　　　if(res.data.code == 0){<br>　　　　　　　　$(‘.popup-box’).css({<br>　　　　　　　　　　‘display’:’block’<br>　　　　　　　　})<br>　　　　　　　　$(‘.popup-a1’).css({<br>　　　　　　　　　　‘display’:’block’<br>　　　　　　　　})<br>　　　　　　　　$(‘.numbering&gt;span’).html(that.value);</p>
-<p>　　　　　　}else{<br>　　　　　　　　$(‘.popup-box’).css({<br>　　　　　　　　　　‘display’:’block’<br>　　　　　　　　)<br>　　　　　　　　$(‘.popup-a2’).css({<br>　　　　　　　　　　‘display’:’block’<br>　　　　　　　　})<br>　　　　　　　　$(‘.numbering-a&gt;span’).html(that.value);<br>　　　　　　}<br>　　　　})<br>　　　　.catch(function(err){<br>　　　　　　console.log(‘err==&gt;&gt;’, err); //请求失败返回的数据<br>　　　　})<br>　　}</p>
+                <h2 id="面试总结"><a href="#面试总结" class="headerlink" title="面试总结"></a>面试总结</h2><h4 id="html"><a href="#html" class="headerlink" title="html"></a>html</h4><p>1.你是如何理解语义化标签的</p>
+<p>用最恰当的HTML元素标记内容，更容易阅读</p>
+<p>优点1.提升可访问性</p>
+<p>​        2.SEO</p>
+<p>​        3.结构清晰，利于维护</p>
+<p>2.meta viewport 是做什么用的怎么写</p>
+<p>3.你用过那些HTML5的标签</p>
+<p>4.H5是什么</p>
+<h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><p>1.BFC</p>
+<p>“块级格式化上下文”。它是一个独立的渲染区域。</p>
+<p>如何触发BFC</p>
+<p>1.float的值不为none </p>
+<p>2.position的值不是static或者relative</p>
+<p>3.display：inline-block table-cell、flex、table-caption或者inline-flex</p>
+<p>4.overflow的值不是visible</p>
+<h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><p>1.闭包是什么？优缺点</p>
+<p>能够读取其他函数内部变量的函数</p>
+<p>作用变量不会被清除</p>
+<p>缺点内存泄露</p>
+<p>2.es6的语法都有那些，分别怎么用</p>
+<p>let，const</p>
+<p>class</p>
+<p>箭头函数</p>
+<p>解构赋值</p>
+<p>import，export</p>
+<p>promise</p>
+<p>3.Promise，promise.all,Promise分别怎么用</p>
+<p>promise基础：resolve,和reject</p>
+<p>resolve方法：在异步方法执行成功后调用</p>
+<p>reject方法：在异步方法执行失败后调用</p>
+<p>promise.all主要用于一次性执行多个异步方法，并且按传入顺序执行，这个方法比较特别，在执行多个异步操作中，只保留取第一个执行完成的异步操作的结果，其他的方法仍在执行，不过执行结果会被抛弃。</p>
+<p>4.async、await怎么使用，如何捕捉异常</p>
+<p>.catch  try catch</p>
+<p>5.如何实现深拷贝</p>
+<p>先进行浅拷贝，然后判断是否为对象，然后递归</p>
+<p>6.不用class如何实现继承？用class又如何实现</p>
+<p>通过构造函数的原型链实现继承</p>
+<p>通过extend</p>
+<p>7.如何实现数组去重？</p>
+<pre><code>let arr = [1,2,3,3]
+
+console.log([...new Set(arr)])
+
+let arr = [1,2,3,3]
+
+  let Arr = [];
+
+  *for*(var i=0;i&lt;arr.length;i++) &#123;
+
+​    *if*(Arr.indexOf(arr[i])===-1) &#123;
+
+​      Arr.push(arr[i])
+
+​    &#125;
+
+  &#125;
+
+  console.log(Arr);
+
+</code></pre>
+<p>8.如何封装axios，拦截器的使用</p>
+<p>axios统一封装<br>然后开始统一封装axios， 首先引入axios、qs依赖，引入main.js主要是用于后面对接口进行统一处理，比如调接口的时候，显示loading等。这个main.js根据你个人情况，可加可不加。</p>
+<p>//request.js<br>import axios from “axios”;<br>import qs from “qs”;<br>import app from “../main.js”;<br>然后创建一个axios实例，这个process.env.BASE_URL在config/dev.evn.js、prod.evn.js里面进行配置：</p>
+<p>/****** 创建axios实例 ******/<br>const service = axios.create({<br>    baseURL: process.env.BASE_URL,  // api的base_url<br>    timeout: 5000  // 请求超时时间<br>});<br>axios实例创建好之后，开始使用request拦截器对axios请求配置做统一处理，具体如下：</p>
+<p>/****** request拦截器==&gt;对请求参数做处理 ******/<br>service.interceptors.request.use(config =&gt; {<br>    app.$vux.loading.show({<br>        text: ‘数据加载中……’<br>    });</p>
+<pre><code>config.method === &#39;post&#39;
+    ? config.data = qs.stringify(&#123;...config.data&#125;)
+    : config.params = &#123;...config.params&#125;;
+config.headers[&#39;Content-Type&#39;] = &#39;application/x-www-form-urlencoded&#39;;
+ 
+return config;
+</code></pre>
+<p>}, error =&gt; {  //请求错误处理<br>    app.$vux.toast.show({<br>        type: ‘warn’,<br>        text: error<br>    });<br>    Promise.reject(error)<br>});<br>然后是对response做统一处理，代码如下：</p>
+<p>/****** respone拦截器==&gt;对响应做处理 ******/<br>service.interceptors.response.use(<br>    response =&gt; {  //成功请求到数据<br>        app.$vux.loading.hide();<br>        //这里根据后端提供的数据进行对应的处理<br>        if (response.data.result === ‘TRUE’) {<br>            return response.data;<br>        } else {<br>            app.$vux.toast.show({  //常规错误处理<br>                type: ‘warn’,<br>                text: response.data.data.msg<br>            });<br>        }<br>    },<br>    error =&gt; {  //响应错误处理<br>        console.log(‘error’);<br>        console.log(error);<br>        console.log(JSON.stringify(error));</p>
+<pre><code>    let text = JSON.parse(JSON.stringify(error)).response.status === 404
+        ? &#39;404&#39;
+        : &#39;网络异常，请重试&#39;;
+    app.$vux.toast.show(&#123;
+        type: &#39;warn&#39;,
+        text: text
+    &#125;);
+ 
+    return Promise.reject(error)
+&#125;
+</code></pre>
+<p>);<br>最后，将我们的axios实例暴露出去，整个axios的封装就写完了。</p>
+<p>export default service;<br>2. axios接口的调用方式<br>axios封装好之后，调用就很简单了。我们把接口统一写在api.js文件里。（当然，如果你的业务非常复杂的话，建议把不同业务的api分开放到不同的文件里，这样方便以后维护）。</p>
+<p>注意：post请求参数放在data里面，get请求参数放在params里。</p>
+<p>//api.js<br>import service from ‘./request’</p>
+<p>export const getPersonInfo = data =&gt; {<br>    return service({<br>        url: ‘/person_pay/getpersoninfo’,<br>        method: ‘post’,<br>        data<br>    })<br>};<br>然后在具体的组件中进行调用。</p>
+<p>//index.vue<br>import {getPersonInfo} from ‘../axios/api.js’<br>export default {<br>    created: async function () {<br>        const params = {<br>            card_no: ‘111’<br>        };<br>        let res = await getPersonInfo(params);<br>        console.log(res);<br>    }</p>
+<h4 id="vue"><a href="#vue" class="headerlink" title="vue"></a>vue</h4><p>1.watch和computed和methods的区别是什么？</p>
+<p>区别：computed计算属性，具有缓存，里面的函数必须return返回结果，适用于一个属性受多个属性影响，比如购物车结算</p>
+<p>watch监听属性的变化，支持异步操作，适用于一个数据影响多个数据，比如搜索的时候</p>
+<p>2.vue.set是做什么用的</p>
+<p>调用方法：Vue.set( target, key, value )<br>target：要更改的数据源(可以是对象或者数组)<br>key：要更改的具体数据<br>value ：重新赋的值</p>
+<p>3.vuex你是怎么用的</p>
+<p>4.vuerouter</p>
+<p>5.路由守卫是什么</p>
+<p>路由跳转是个大工程，我们可以在不同的时间段进行相应的操作</p>
+<p>比如登录验证</p>
+<p>包括全局前置、后置守卫 beforeEach afterEach</p>
+<p>组件路由守卫 beforeRouterEnter</p>
+<h4 id="postman"><a href="#postman" class="headerlink" title="postman"></a>postman</h4><p>1.安装postman</p>
+<p>2.安装完成后打开运行软件</p>
+<p>3.新建连接，选择Post连接方式</p>
+<p>4.输入Url地址(https://……..)</p>
+<p>5.选择headers，并输入以下内容</p>
+<p>Content-Type  application/x-www-form-urlencoded;charset=utf-8</p>
+<p>6.选择Body,选择x-www-form-unlencoded，并传入参数</p>
+<p>7.打开设置界面File-Settings，关闭</p>
+<p>8.选择Certificates，添加证书</p>
+<p>9.按图中说明填写各个信息，选择我们的公钥和私钥到对应的选择框中。</p>
+<p>10.以上完成后就可以到主页面发起https请求了。</p>
+<p>11.进入Postman主页面并创建项目接口集合</p>
+<p>  这里是我之前用过，所以左侧文件栏存在几个已有的文件夹。<br>  选择功能菜单New下的Collection创建项目接口集合。新建一个亿的项目A hundred million，可在Description部分写一下项目描述。</p>
+<p>12.创建项目模块文件夹</p>
+<p>  一般项目会分多个管理模块或者功能模块进行开发。这里可根据项目具体情况创建子文件夹方便接口管理。此处在A hundred million项目右键创建资产管理assets文件夹、user用户管理文件夹。可将测试的接口实例保存在对于管理模块下。</p>
+<p>13.新建接口测试</p>
+<pre><code>在Postman主页面Content部分点击&#39;+&#39;按钮，新增一个接口测试。在图2-6所示第一部分填写接口请求路径，左侧下拉列表可选择请求方式，此处选择POST请求方式。接口请求路径为http://localhost:8080/manage/app/user/login。第二部分是请求体，即包含接口所需请求参数的Body，此处选择原始数据RAW，数据类型使用JSON数据作为请求数据。点击蓝色Send按钮发送请求，后台项目接口接收请求并响应返回执行结果。此处后台处理数据返回结果仍是JSON数据，这个看实际项目而定，此处仅做演示。第三部分是接口响应体，即接口响应请求处理并返回的数据。点击Pretty自动匹配接口返回的数据格式并对数据美化显示，使数据看起来更加直观。如果接口测试出现异常，则可以通过PreView视图查看浏览器响应接口的页面信息，也可以通过Header了解请求状态等参数。一般出现异常还是直接去后台看控制台的异常信息及项目日志来处理解决异常，再进行接口测试。
+</code></pre>
+<p>————————————————<br>版权声明：本文为CSDN博主「niaonao」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/niaonao/article/details/80998804">https://blog.csdn.net/niaonao/article/details/80998804</a></p>
+<h4 id="git"><a href="#git" class="headerlink" title="git"></a>git</h4><ol>
+<li><p>列举工作中常用的几个git命令？<br>新增文件的命令：git add file或者git add .<br>提交文件的命令：git commit –m或者git commit –a<br>查看工作区状况：git status –s<br>拉取合并远程分支的操作：git fetch/git merge或者git pull<br>查看提交记录命令：git reflog</p>
+</li>
+<li><p>提交时发生冲突，你能解释冲突是如何产生的吗？你是如何解决的？<br>开发过程中，我们都有自己的特性分支，所以冲突发生的并不多，但也碰到过。诸如公共类的公共方法，我和别人同时修改同一个文件，他提交后我再提交就会报冲突的错误。<br>发生冲突，在IDE里面一般都是对比本地文件和远程分支的文件，然后把远程分支上文件的内容手工修改到本地文件，然后再提交冲突的文件使其保证与远程分支的文件一致，这样才会消除冲突，然后再提交自己修改的部分。特别要注意下，修改本地冲突文件使其与远程仓库的文件保持一致后，需要提交后才能消除冲突，否则无法继续提交。必要时可与同事交流，消除冲突。<br>发生冲突，也可以使用命令。</p>
+</li>
+</ol>
+<p>通过git stash命令，把工作区的修改提交到栈区，目的是保存工作区的修改；<br>通过git pull命令，拉取远程分支上的代码并合并到本地分支，目的是消除冲突；<br>通过git stash pop命令，把保存在栈区的修改部分合并到最新的工作空间中；<br>3. 如果本次提交误操作，如何撤销？<br>如果想撤销提交到索引区的文件，可以通过git reset HEAD file；如果想撤销提交到本地仓库的文件，可以通过git reset –soft HEAD^n恢复当前分支的版本库至上一次提交的状态，索引区和工作空间不变更；可以通过git reset –mixed HEAD^n恢复当前分支的版本库和索引区至上一次提交的状态，工作区不变更；可以通过git reset –hard HEAD^n恢复当前分支的版本库、索引区和工作空间至上一次提交的状态。<br>5. 你使用过git stash命令吗？你一般什么情况下会使用它？<br>命令git stash是把工作区修改的内容存储在栈区。<br>以下几种情况会使用到它：</p>
+<p>解决冲突文件时，会先执行git stash，然后解决冲突；<br>遇到紧急开发任务但目前任务不能提交时，会先执行git stash，然后进行紧急任务的开发，然后通过git stash pop取出栈区的内容继续开发；<br>切换分支时，当前工作空间内容不能提交时，会先执行git stash再进行分支切换；</p>
+<p>​    5.能不能说一下git fetch和git pull命令之间的区别？<br>简单来说：git fetch branch是把名为branch的远程分支拉取到本地；而git pull branch是在fetch的基础上，把branch分支与当前分支进行merge；因此pull = fetch + merge。</p>
+<p>​    6.使用过git merge和git rebase吗？它们之间有什么区别？<br>简单的说，git merge和git rebase都是合并分支的命令。<br>git merge branch会把branch分支的差异内容pull到本地，然后与本地分支的内容一并形成一个committer对象提交到主分支上，合并后的分支与主分支一致；<br>git rebase branch会把branch分支优先合并到主分支，然后把本地分支的commit放到主分支后面，合并后的分支就好像从合并后主分支又拉了一个分支一样，本地分支本身不会保留提交历史。</p>
 
                 
             </div>
@@ -540,7 +632,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://wuhongwei123.github.io/2020/10/13/ajax%E5%92%8Caxios%E7%9A%84%E5%8C%BA%E5%88%AB/">http://wuhongwei123.github.io/2020/10/13/ajax%E5%92%8Caxios%E7%9A%84%E5%8C%BA%E5%88%AB/</a>
+                    <a href="http://wuhongwei123.github.io/2021/06/06/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">http://wuhongwei123.github.io/2021/06/06/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -578,12 +670,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/ajax/">
-                                    <span class="chip bg-color">ajax</span>
-                                </a>
-                            
-                                <a href="/tags/axios/">
-                                    <span class="chip bg-color">axios</span>
+                                <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                                    <span class="chip bg-color">面试</span>
                                 </a>
                             
                         </div>
@@ -755,17 +843,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/11/07/vue-js%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">
+                <a href="/2021/06/06/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/0.jpg" class="responsive-img" alt="vue.js快速入门">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/19.jpg" class="responsive-img" alt="面试总结">
                         
-                        <span class="card-title">vue.js快速入门</span>
+                        <span class="card-title">面试总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -775,9 +864,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -786,15 +875,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%BD%AC%E8%BD%BD/">
-                        <span class="chip bg-color">转载</span>
-                    </a>
-                    
-                    <a href="/tags/vue/">
-                        <span class="chip bg-color">vue</span>
+                    <a href="/tags/%E9%9D%A2%E8%AF%95/">
+                        <span class="chip bg-color">面试</span>
                     </a>
                     
                 </div>
@@ -808,13 +894,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/09/10/js%E7%9A%84%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/">
+                <a href="/2021/03/03/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">
                     <div class="card-image">
                         
                         
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/21.jpg" class="responsive-img" alt="js的高级进阶">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/7.jpg" class="responsive-img" alt="数据可视化">
                         
-                        <span class="card-title">js的高级进阶</span>
+                        <span class="card-title">数据可视化</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -825,7 +911,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-03
                             </span>
                         <span class="publish-author">
                             
@@ -838,8 +924,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/js%E8%BF%9B%E9%98%B6/">
-                        <span class="chip bg-color">js进阶</span>
+                    <a href="/tags/echarts/">
+                        <span class="chip bg-color">echarts</span>
                     </a>
                     
                 </div>
